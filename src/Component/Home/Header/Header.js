@@ -21,7 +21,7 @@ const Header = () => {
                         <li><a href="#Work">Our Work</a></li>
                         <li><a href="#Contact">Contact Us</a></li>
                     </ul>
-                    <Link to="/dash-event" className="adminBtn">Admin</Link>
+                    <Link to="/admin-service" className="adminBtn">Admin</Link>
                     </div>
                 </div>
                </div>
