@@ -1,0 +1,65 @@
+.header {
+	background: #FBD062;
+	float: left;
+	width: 100%;
+	clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%);
+}
+.header_top_wrap {
+	padding-bottom: 60px;
+	padding-top: 25px;
+}
+.header_btm_wrap {
+	padding-bottom: 70px;
+}
+.logo {
+	width: 35%;
+}
+.menuWrap {
+	float: right;
+}
+.menu {
+	list-style: none;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+.menu li {
+	float: left;
+}
+.menu li a {
+	padding: 10px 20px;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+	float: left;
+}
+.regBtn, .adminBtn, .header_btm_info button {
+	font-size: 14px;
+	border: none;
+	padding: 10px 30px;
+	color: #fff;
+	float: left;
+	border-radius: 4px;
+	text-decoration: none !important;
+}
+.regBtn:hover, .adminBtn:hover {color: #fff}
+.regBtn {	background: #3f90fc; margin-left: 10px; margin-right: 15px}
+.adminBtn {	background: #434141;}
+.header_btm_info p {
+	padding: 15px 0;
+}
+.header_btm_info h1 {
+	font-weight: bold;
+	font-size: 44px;
+}
+.header_btm_info button {
+	background: #111430;
+	padding: 10px 45px;
+}
+.hd_btm_img img {
+	width: 69%;
+	/* float: right; */
+	margin: auto;
+	display: block;
+	margin-right: 43px;
+}
