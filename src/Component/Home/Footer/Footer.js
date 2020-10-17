@@ -3,7 +3,7 @@ import './style.css';
 
 const Footer = () => {
     return (
-        <div className="footer_wrap fwidth">
+        <div id="Contact" className="footer_wrap fwidth">
              <div class="container" >
             <div class="row">
                <div class="col-md-6 col-sm-12 mail_info">

@@ -19,7 +19,7 @@ const Header = () => {
                         <li><a href="#Home">Home</a></li>
                         <li><a href="#ServiceId">Services</a></li>
                         <li><a href="#Work">Our Work</a></li>
-                        <li><a href="/">Contact Us</a></li>
+                        <li><a href="#Contact">Contact Us</a></li>
                     </ul>
                     <Link to="/dash-event" className="adminBtn">Admin</Link>
                     </div>
