@@ -179,3 +179,12 @@
 .logo_3 img {
 	width: 65%;
 }
+.file_upload {
+	float: left;
+	width: 49% !important;
+	background: #deffed;
+	border: thin solid #009444 !important;
+	padding: 13px 15px;
+	font-size: 12px;
+	border-radius: 4px;
+}

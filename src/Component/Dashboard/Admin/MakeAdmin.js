@@ -5,6 +5,7 @@ import {
 import './style.css'; 
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import LoginInfo from '../Login/LoginInfo';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     
     const submitAdmin = ()=> {
       
-      fetch('http://localhost:4000/addAdmin', {
+      fetch('https://shrouded-eyrie-22901.herokuapp.com/addAdmin', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
                      </div>
                       </div>
                       <div className="rightWidget right">
-                        <h2 class="dashHeading">Add Service</h2>
+                        <LoginInfo title="Make Admin"></LoginInfo>
                         <div className="eventForm">
                           <form onSubmit={handleClick} className="creatForm">
                           <div className="formWrap">

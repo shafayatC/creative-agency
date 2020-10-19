@@ -16,6 +16,32 @@ button{font-family: 'Roboto', sans-serif; outline: none; cursor: pointer;}
 	padding-top: 20px;
 }
 textarea:focus, input:focus, a{ outline: none;}
+/*========== userinfo ==========*/
+.dashHeading_2 {
+	font-size: 20px;
+	float: left;
+	padding: 15px 20px;
+}
+.userInfo {
+	float: right;
+	cursor: pointer;
+}
+.userInfo img {
+	width: 50px;
+	float: left;
+	border-radius: 90px;
+	margin-right: 7px;
+}
+.userInfo h4 {
+	float: left;
+	font-size: 14px;
+	margin-right: 24px;
+	padding-top: 12px;
+}
+#simple-menu {
+	margin-top: 36px;
+	margin-left: 64px;
+}
 
 /*		Mobile Layout: 480px.   */
 @media only screen and (max-width: 767px) {

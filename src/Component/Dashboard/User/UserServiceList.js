@@ -6,6 +6,7 @@ import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { ManageContext } from '../../../App';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import LoginInfo from '../Login/LoginInfo';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,7 +26,7 @@ const UserServiceList = () => {
   const [serviceList, setServiceList] = useState([]); 
 
    useEffect(()=>{
-     fetch(`http://localhost:4000/userOrderList/${user.email}`)
+     fetch(`https://shrouded-eyrie-22901.herokuapp.com/userOrderList/${user.email}`)
      .then(res => res.json())
      .then(data => setServiceList(data))
    },[])
@@ -41,8 +42,7 @@ const UserServiceList = () => {
                    </div>
                       </div>
                       <div className="rightWidget right">
-                        <h2 class="dashHeading">Service List</h2>
-
+                        <LoginInfo title="Service List"></LoginInfo>
                         <div className="eventForm">
                             <div className="p-4">
                                 <div className="service_list_wrap">

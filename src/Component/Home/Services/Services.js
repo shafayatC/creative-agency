@@ -21,13 +21,13 @@ const Services = () => {
         setOrderService()
     }
     useEffect(()=>{
-        fetch('http://localhost:4000/serviceList')
+        fetch('https://shrouded-eyrie-22901.herokuapp.com/serviceList')
         .then(res => res.json())
         .then(data => setServiceValu(data))
     },[])
 
     return (
-        <div  id="ServiceId" >
+        <div  id="ServiceId" className="fwidth">
             <div class="container">
                 <div className="services_wrap fwidth">
                 <div class="row">

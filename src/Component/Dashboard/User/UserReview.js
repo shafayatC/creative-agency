@@ -6,6 +6,7 @@ import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { ManageContext } from '../../../App';
+import LoginInfo from '../Login/LoginInfo';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
         
       if(review.designation && review.description){
 
-          fetch('http://localhost:4000/addReview', {
+          fetch('https://shrouded-eyrie-22901.herokuapp.com/addReview', {
             method: 'POST', // or 'PUT'
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify(review),
@@ -95,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                       </div>
                       <div className="rightWidget right">
-                        <h2 class="dashHeading">Review</h2>
+                        <LoginInfo title="Review"></LoginInfo>
                         <div className="eventForm">
                             <div className="p-4">
                          

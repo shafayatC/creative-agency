@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import './style.css'; 
 import { makeStyles } from '@material-ui/core/styles';
+import LoginInfo from '../Login/LoginInfo';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
             data.append('name', vlService.name)
             data.append('description', vlService.description)
 
-              fetch('http://localhost:4000/addService', {
+              fetch('https://shrouded-eyrie-22901.herokuapp.com/addService', {
                 method: 'POST',
                 body: data
               })
@@ -92,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
                    </div>
                       </div>
                       <div className="rightWidget right">
-                        <h2 class="dashHeading">Add Service</h2>
+                        <LoginInfo title="Add Service"></LoginInfo>
                         <div className="eventForm">
                           <form onSubmit={handleClick} className="creatForm">
                           <div className="formWrap">
@@ -107,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
                            </div>
                            <div className="formRight">
                               <p className="p_7">Icon {vlService.image}</p>
-                            <input onBlur={onchangeImg} type="file"></input>
+                            <input onBlur={onchangeImg} className="file_upload" type="file"></input>
                             </div>
                             <ul id='warningMsg' style={{float:"left", width:"100%"}}></ul>
 

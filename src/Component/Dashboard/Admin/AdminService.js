@@ -4,6 +4,7 @@ import {
   } from "react-router-dom";
   import './style.css'; 
   import CircularProgress from '@material-ui/core/CircularProgress';
+import LoginInfo from '../Login/LoginInfo';
 
 const AdminService = () => {
     const [serviceList, setserviceList] =  useState([]); 
@@ -12,7 +13,7 @@ const AdminService = () => {
     const updateOrderStatus = (val) => {
         const value = document.getElementById("status").value; 
     
-        fetch(`http://localhost:4000/updateOrderStatus/${val}`, {
+        fetch(`https://shrouded-eyrie-22901.herokuapp.com/updateOrderStatus/${val}`, {
             method: 'PATCH', // patch
             headers: {'Content-Type': 'application/json',},
             body: JSON.stringify({status: value}),
@@ -30,7 +31,7 @@ const AdminService = () => {
         }
 
     useEffect(()=>{
-        fetch("http://localhost:4000/userOrderList")
+        fetch("https://shrouded-eyrie-22901.herokuapp.com/userOrderList")
         .then(res => res.json())
         .then(data =>setserviceList(data))
     },[])
@@ -47,7 +48,7 @@ const AdminService = () => {
                 </div>
                 </div>
                 <div className="rightWidget right">
-                <h2 class="dashHeading">Volunteer register list</h2>
+                    <LoginInfo title="Volunteer register list"></LoginInfo>
                 <div className="eventForm">
                     <div className="userListWrap">
 

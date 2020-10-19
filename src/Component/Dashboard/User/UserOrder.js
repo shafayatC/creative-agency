@@ -6,6 +6,7 @@ import './style.css';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { ManageContext } from '../../../App';
+import LoginInfo from '../Login/LoginInfo';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -97,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
         data.append('price', vlOrder.price)
         data.append('status', "pending")
 
-          fetch('http://localhost:4000/orderService', {
+          fetch('https://shrouded-eyrie-22901.herokuapp.com/orderService', {
             method: 'POST',
             body: data
           })
@@ -132,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
               </div>
                 </div>
                 <div className="rightWidget right">
-                  <h2 class="dashHeading">Order</h2>
+                  <LoginInfo title="Order"></LoginInfo>
                   <div className="eventForm">
                       <div className="p-4">
                     <form onSubmit={handleSubmit} className="creatOrderForm">

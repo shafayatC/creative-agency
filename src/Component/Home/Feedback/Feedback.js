@@ -7,7 +7,7 @@ const Feedback = () => {
     const [review, setReview] = useState([]); 
 
     useEffect(()=> {
-        fetch("http://localhost:4000/reviewList")
+        fetch("https://shrouded-eyrie-22901.herokuapp.com/reviewList")
         .then(res => res.json())
         .then(data => setReview(data))
     },[])
@@ -22,7 +22,7 @@ const Feedback = () => {
                 <div class="row">
                     <div class="col-md-12 fdback_client_wrap">
 
-                        {review.slice(0,3).map(data =>
+                        {review.slice(0,6).map(data =>
                             <div className="single_fdback">
                             <div className="info_wrap">
                                 <img src={data.photo}/>

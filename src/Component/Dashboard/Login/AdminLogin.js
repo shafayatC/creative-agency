@@ -24,9 +24,9 @@ const AdminLogin = () => {
         fire.auth().signInWithPopup(provider).then(result => {
             var token = result.credential.accessToken;
             var user = result.user;
-            const {displayName, email} = user; 
+            const {displayName, email, photoURL} = user; 
 
-            fetch('http://localhost:4000/adminCheck', {
+            fetch('https://shrouded-eyrie-22901.herokuapp.com/adminCheck', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify({ email: email })
@@ -36,6 +36,7 @@ const AdminLogin = () => {
                     setUser({
                         name : displayName,
                         email: email,
+                        photo: photoURL, 
                         admin: data
                     });
                     console.log(user.admin); 
