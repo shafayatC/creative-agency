@@ -6,38 +6,44 @@ import {
   import CircularProgress from '@material-ui/core/CircularProgress';
 
 const AdminService = () => {
-    const [eventList, setEventList] =  useState([]); 
+    const [serviceList, setserviceList] =  useState([]); 
+    const [updateService, SetUpdateService] =  useState();
 
-    const deletEvent = val => {
-        console.log(val);
-        fetch(`https://radiant-coast-19512.herokuapp.com/userEventDelete/${val}`, {
-          method: 'DELETE',
-        })
-        .then(res => res.text()) // or res.json()
-        .then(res => {
-          if(res){
-            fetch("https://radiant-coast-19512.herokuapp.com/allRegEvent")
-            .then(res => res.json())
-            .then(data =>setEventList(data))
-          }
-        })
-      }
+    const updateOrderStatus = (val) => {
+        const value = document.getElementById("status").value; 
+    
+        fetch(`http://localhost:4000/updateOrderStatus/${val}`, {
+            method: 'PATCH', // patch
+            headers: {'Content-Type': 'application/json',},
+            body: JSON.stringify({status: value}),
+          })
+          .then(response => response.json())
+          .then(data => {
+            if(data){
+              alert("Order Status Update");
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+        
+        }
 
     useEffect(()=>{
-        fetch("https://radiant-coast-19512.herokuapp.com/allRegEvent")
+        fetch("http://localhost:4000/userOrderList")
         .then(res => res.json())
-        .then(data =>setEventList(data))
+        .then(data =>setserviceList(data))
     },[])
 
     return (
         <div>
             <div className="addEventWrap fwidth">
                 <div className="leftWidget left">
-                    <Link  to="/" className="logo_3 fwidth"><img className="fwidth" src={require('../../Home/img/logos/logo.png')} /></Link>
+                    <Link  to="/" className="logo_3 fwidth"><img  src={require('../../Home/img/logos/logo.png')} /></Link>
                 <div className="dashMenu fwidth">
-                    <Link to="/admin-service" className="fwidth  active lnk_1"><img className="icon_2" src="" />Service list</Link>
-                    <Link to="/admin-addservice" className="fwidth  lnk_1"><img className="icon_2" src="" /> Add Service</Link>
-                    <Link to="/admin-makeadmin" className="fwidth  lnk_1"><img className="icon_2" src="" /> Make Admin</Link>
+                    <Link to="/admin-service" className="fwidth  active lnk_1"><img className="icon_2" src={require('../img/serviceg.png')} />Service list</Link>
+                    <Link to="/admin-addservice" className="fwidth  lnk_1"><img className="icon_2" src={require('../img/plus.png')} /> Add Service</Link>
+                    <Link to="/admin-makeadmin" className="fwidth  lnk_1"><img className="icon_2" src={require('../img/add.png')} /> Make Admin</Link>
                 </div>
                 </div>
                 <div className="rightWidget right">
@@ -53,23 +59,22 @@ const AdminService = () => {
                             <th>Project Details</th>
                             <th>Status</th>
                         </tr>
-                        {eventList.map(data=>
+                        {serviceList.map(data=>
                                 <tr>
-                                <td>{data.eventname}</td>
+                                <td>{data.name}</td>
                                 <td>{data.email}</td>
-                                <td>{data.date}</td>
-                                <td>{data.description}</td>
-                                <td><select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select></td>
+                                <td>{data.service}</td>
+                                <td>{data.detail}</td>
+                                <td><select onChange={()=>updateOrderStatus(data._id)} name="status" id="status">
+                                    <option className="ongoing" selected={data.status === "ongoing" ? "selected": ""} value="ongoing">On going</option>
+                                    <option className="pending" selected={data.status === "pending" ? "selected": ""}   value="pending">Pending</option>
+                                    <option className="done" selected={data.status === "done" ? "selected": ""} value="done">Done</option>
+                                </select></td>
                             </tr>
                             )}
                     
                         </table>
-                        {eventList.length === 0 && <div style={{margin: "auto", width: "44px", paddingTop: "20px"}}><CircularProgress /></div>}
+                        {serviceList.length === 0 && <div style={{margin: "auto", width: "44px", paddingTop: "20px"}}><CircularProgress /></div>}
 
                     </div>
                 </div>

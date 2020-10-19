@@ -9,4 +9,35 @@ button{font-family: 'Roboto', sans-serif; outline: none; cursor: pointer;}
 	color: red;
 	margin-top: 121px;
 }
+#warningMsg {
+	float: left;
+	width: 100%;
+	color: red;
+	padding-top: 20px;
+}
 textarea:focus, input:focus, a{ outline: none;}
+
+/*		Mobile Layout: 480px.   */
+@media only screen and (max-width: 767px) {
+	.logo {margin: auto;margin-bottom: 58px;}
+	.menu li {float: left;width: 100%;text-align: center;}
+	.menu li a {width: 100%;border-bottom: thin solid #fac027;}
+	.adminBtn {width: 100%;text-align: center;}
+	.header_btm_info h1 {font-size: 28px !important;text-align: center;}
+	.header_btm_info p {text-align: center;}
+	.header_btm_info button {width: 100%;}
+	.clients_wrap {padding-top: 20px !important;padding-bottom: 30px !important;}
+	.clients {width: 100% !important; float: left;text-align: center;}
+	.clients img {width: 50px !important;margin: 0 10px !important;}
+	.srv_details {width: 100% !important;margin-right: 0px !important; }
+	.services_wrap {padding-bottom: 20px !important;}
+	/*slider*/
+	.work_crs img {height: 135px !important;padding: 5px !important;}
+	.slick-dots li button::before {font-size: 12px !important;}
+	/*==*/
+	.single_fdback {width: 100% !important;}
+	.mail_info h2 {font-size: 23px !important;padding-bottom: 15px !important;}
+	.mail_info {	padding: 17px 24px !important;	text-align: center;	}
+	.message_form button {width: 100%;	}
+	.feedback_wrap {padding-bottom: 30px !important;}
+}
