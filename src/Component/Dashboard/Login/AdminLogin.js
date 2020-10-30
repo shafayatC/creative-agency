@@ -33,15 +33,18 @@ const AdminLogin = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    setUser({
+                    if(data){  setUser({
                         name : displayName,
                         email: email,
                         photo: photoURL, 
                         admin: data
                     });
-                    console.log(user.admin); 
+                    
                     history.replace(from);
                     console.log(user); 
+                }else {
+                    alert("Allow Only Admin")
+                }
                 })   
 
             }).catch(function(error) {

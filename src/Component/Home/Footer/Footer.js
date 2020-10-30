@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css'; 
 
 const Footer = () => {
+    const [mail, setMail] = useState(); 
+
+    const onchangeFrom = (e)=> { setMail({...mail, from: e.target.value}) }
+    const onchangeName = (e)=> {setMail({...mail, name: e.target.value})}
+    const onchangeMsg = (e)=> {setMail({...mail, msg: e.target.value})}
+
+    const mailHandeler= (e)=>{
+        e.preventDefault();
+    
+          fetch('https://shrouded-eyrie-22901.herokuapp.com/sendMail', {
+            method: 'POST', // or 'PUT'
+            headers: {'Content-Type': 'application/json',},
+            body: JSON.stringify(mail),
+          })
+          .then(res => res.json())
+          .then(result => {
+              if(result){
+                  alert("Message send")
+                }
+            })
+          .catch(err => console.log(err))
+    }
     return (
         <div id="Contact" className="footer_wrap fwidth">
              <div class="container" >
@@ -11,10 +33,10 @@ const Footer = () => {
                     <p>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
                </div>
                 <div class="col-md-6 col-sm-12 message_form_wrap">
-                    <form className="message_form">
-                        <input className="email_2" type="text" placeholder="Your email address"></input>
-                        <input className type="text" placeholder="Your name / company’s name"></input>
-                        <textarea placeholder="Your message"></textarea>
+                    <form onSubmit={mailHandeler} className="message_form">
+                        <input onBlur={onchangeFrom} className="email_2" type="text" placeholder="Your email address"></input>
+                        <input onBlur={onchangeName} className type="text" placeholder="Your name / company’s name"></input>
+                        <textarea onBlur={onchangeMsg} placeholder="Your message"></textarea>
                         <button className="submitBtn" class="btn btn-dark">Send</button>
                     </form>
                 </div>

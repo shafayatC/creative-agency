@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
                            </div>
                            <div className="formRight">
                               <p className="p_7">Icon {vlService.image}</p>
-                            <input onBlur={onchangeImg} className="file_upload" type="file"></input>
+                            <input onBlur={onchangeImg} className="file_upload_2" type="file"></input>
                             </div>
                             <ul id='warningMsg' style={{float:"left", width:"100%"}}></ul>
 
